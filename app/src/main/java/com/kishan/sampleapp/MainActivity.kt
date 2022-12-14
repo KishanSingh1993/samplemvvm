@@ -18,12 +18,12 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+
         val factory = MainViewModelFactory()
         mainViewModel = ViewModelProvider(this,factory)[MainViewModel::class.java]
         binding.myViewModel = mainViewModel
 
         binding.lifecycleOwner = this
-
 
 
         mainViewModel.message.observe(this, Observer {

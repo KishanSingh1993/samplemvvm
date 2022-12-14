@@ -1,17 +1,20 @@
 package com.kishan.sampleapp
 
-import android.util.Patterns
-import android.widget.Toast
+
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel() {
+
+class MainViewModel() : ViewModel() {
+
+
 
     val panNo = MutableLiveData<String>()
-    val etDate = MutableLiveData<String>()
-    val etMonth = MutableLiveData<String>()
-    val etYear = MutableLiveData<String>()
+    val strDate = MutableLiveData<String>()
+    val strMonth = MutableLiveData<String>()
+    val strYear = MutableLiveData<String>()
 
     private val statusMessage = MutableLiveData<Event<String>>()
 
@@ -21,20 +24,23 @@ class MainViewModel : ViewModel() {
 
     fun showToastMessage(){
 
-        if (panNo.value == null) {
+        if (panNo.value == null || panNo.value!!.length < 10) {
             statusMessage.value = Event("Please enter PAN No.")
         }
-        else if (panNo.value!! < 10.toString()){
-            statusMessage.value = Event("Please enter A valid PAN No.")
-        }
-        else if (etDate.value == null) {
+        else if (strDate.value == null) {
             statusMessage.value = Event("Please enter a date")
-        } else if (etMonth.value == null){
-
+            Log.i("Date", strDate.value.toString())
+            if (strMonth.value.toString() == "02"){
+                if (strDate.value!!.toString()> 29.toString()){
+                    statusMessage.value = Event("Please enter a valid date")
+                }
+            }
+        } else if (strMonth.value == null){
             statusMessage.value = Event("Please enter a month")
-        }else if (etYear.value == null){
+        }else if (strYear.value == null){
 
             statusMessage.value = Event("Please enter a year")
         }
+
     }
 }
