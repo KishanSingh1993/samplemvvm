@@ -1,10 +1,12 @@
 package com.kishan.sampleapp
 
 
-import android.util.Log
+import android.text.TextUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainViewModel() : ViewModel() {
@@ -29,18 +31,30 @@ class MainViewModel() : ViewModel() {
         }
         else if (strDate.value == null) {
             statusMessage.value = Event("Please enter a date")
-            Log.i("Date", strDate.value.toString())
-            if (strMonth.value.toString() == "02"){
-                if (strDate.value!!.toString()> 29.toString()){
-                    statusMessage.value = Event("Please enter a valid date")
-                }
-            }
+//            Log.i("Date", strDate.value.toString())
+
+
         } else if (strMonth.value == null){
             statusMessage.value = Event("Please enter a month")
         }else if (strYear.value == null){
 
             statusMessage.value = Event("Please enter a year")
         }
+        else{
 
+            if (strMonth.value!!.toString() == "02"){
+                if (strDate.value.toString().toInt() > 29){
+                    statusMessage.value = Event("Please enter a valid date")
+                }
+            }
+
+        }
+
+    }
+
+    fun funBD(dateStr: String) {
+        val formatter = SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault())
+        val date = formatter.parse(dateStr)
+        println(date)
     }
 }
