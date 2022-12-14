@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="myViewModel"
+            type="com.kishan.sampleapp.MainViewModel" />
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="S."
+        android:textColor="#FFA500"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_margin="10sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First of the few step to set you up with a Bank Account"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_margin="10sp"
+        />
+
+
+    <EditText
+        android:id="@+id/etPan"
+        android:hint="@string/enter_pan_no"
+        android:paddingStart="10sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
+        android:layout_marginTop="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="@drawable/shape"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80sp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_margin="10sp"
+        >
+
+        <EditText
+            android:id="@+id/etDay"
+            android:hint="@string/dd"
+            android:paddingStart="10sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="10sp"
+            android:layout_marginTop="30sp"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="50sp"
+            android:background="@drawable/shape"
+            />
+
+        <EditText
+            android:id="@+id/etMonth"
+            android:hint="@string/mm"
+            android:paddingStart="10sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="10sp"
+            android:layout_marginTop="30sp"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="50sp"
+            android:background="@drawable/shape"
+            />
+
+        <EditText
+            android:id="@+id/etYear"
+            android:hint="@string/yyyy"
+            android:paddingStart="10sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="10sp"
+            android:layout_marginTop="30sp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="50sp"
+            android:background="@drawable/shape"
+            />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:onClick="@{()->myViewModel.showToastMessage()}"
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
+        android:layout_marginTop="50sp"
+        android:text="@string/next"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/i_don_t_have_pan"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/purple_500"
+        />
+
+
+</LinearLayout>
+</layout>

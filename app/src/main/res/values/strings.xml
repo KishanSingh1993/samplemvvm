@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SampleApp</string>
+    <string name="enter_pan_no">Enter PAN No</string>
+    <string name="yyyy">YYYY</string>
+    <string name="mm">MM</string>
+    <string name="dd">DD</string>
+    <string name="next">Next</string>
+    <string name="i_don_t_have_pan">I don\'t have PAN</string>
+</resources>
