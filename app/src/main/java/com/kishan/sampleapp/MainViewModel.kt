@@ -11,8 +11,6 @@ import java.util.*
 
 class MainViewModel() : ViewModel() {
 
-
-
     val panNo = MutableLiveData<String>()
     val strDate = MutableLiveData<String>()
     val strMonth = MutableLiveData<String>()
@@ -47,9 +45,17 @@ class MainViewModel() : ViewModel() {
                     statusMessage.value = Event("Please enter a valid date")
                 }
             }
+            else{
+
+                statusMessage.value = Event("Data Successfully Saved")
+            }
 
         }
 
+    }
+
+    fun closeApp(){
+        System.exit(0)
     }
 
     fun funBD(dateStr: String) {
